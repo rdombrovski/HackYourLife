@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_primary">#b9b9b9</color>
+    <color name="color_primary_dark">#f1b4d9</color>
+    <color name="color_accent">#FFC400</color>
+    <color name="text_color">#004305</color>
+    <color name="text_color_game">#FFF</color>
+    <color name="windowBackground">#fbc2f8</color>
+    <color name="button_bg">#f2922a</color>
+    <color name="titles">#f2922a</color>
+    <color name="life">#f2922a</color>
+    <color name="feed">#ffffff</color>
+</resources>

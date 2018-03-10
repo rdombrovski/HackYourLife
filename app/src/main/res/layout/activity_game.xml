@@ -1,0 +1,148 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bif812.roman.FeedbackActivity" xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" android:orientation="vertical"
+    tools:context="com.bif812.roman.GameActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_weight="0.1"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:layout_width="@dimen/logo"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_peq"
+            android:layout_gravity="start|top"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="0.1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_game"
+            android:textSize="@dimen/indicators"
+            android:text="@string/match_found"
+            android:paddingLeft="10dp"
+            android:layout_weight="0.1"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/contador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_game"
+            android:textSize="@dimen/indicators"
+            android:textStyle="bold"
+            android:layout_weight="0.2"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_game"
+            android:textSize="@dimen/indicators"
+            android:layout_weight="0.1"
+            android:text="@string/time_text"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/timeBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/life"
+            android:textSize="@dimen/indicators"
+            android:textStyle="bold"
+            android:layout_weight="0.2"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_game"
+            android:textSize="@dimen/indicators"
+            android:text="@string/life_text"
+            android:layout_weight="0.1"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/lifeBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/life"
+            android:textStyle="bold"
+            android:layout_weight="0.2"
+            android:textSize="@dimen/indicators"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="horizontal"
+        android:layout_weight="0.4"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal">
+        <ImageButton
+            android:id="@+id/imagen1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:layout_marginRight="@dimen/img_square_pad"
+            android:contentDescription="@string/img_desc" />
+        <ImageButton
+            android:id="@+id/imagen2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/img_square_pad"
+            android:background="@drawable/square"
+            android:contentDescription="@string/img_desc" />
+        <ImageButton
+            android:id="@+id/imagen3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:contentDescription="@string/img_desc" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.1"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/palabra"
+            android:textColor="@color/text_color_game"
+            android:textSize="@dimen/palabra_size"
+            android:layout_marginRight="@dimen/img_square_pad"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:text="palabra"
+            android:gravity="center|center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.00" />
+
+        <ImageView
+            android:id="@+id/feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/empty"
+            android:contentDescription="@string/img_desc" />
+    </LinearLayout>
+
+</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
