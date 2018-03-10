@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HackYourLife.iml" filepath="$PROJECT_DIR$/HackYourLife.iml" />
+      <module fileurl="file://C:\Proj\HackYourLifegit\HackYourLife.iml" filepath="C:\Proj\HackYourLifegit\HackYourLife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HackYourLifegit.iml" filepath="$PROJECT_DIR$/.idea/HackYourLifegit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Proj\HackYourLifegit\app\app.iml" filepath="C:\Proj\HackYourLifegit\app\app.iml" />
     </modules>
   </component>
 </project>
