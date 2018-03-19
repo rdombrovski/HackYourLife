@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         final Typewriter type1 = (Typewriter)findViewById(R.id.intro1);
         final Typewriter type2 = (Typewriter)findViewById(R.id.intro2);
         final Typewriter type3 = (Typewriter)findViewById(R.id.intro3);
@@ -61,18 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 type4.animateText(intro4);
             }
         }, 12000);
-
-//        typing(type1, intro1);
-//        typing(type2, intro2);
-//        typing(type3, intro3);
-//        typing(type4, intro4);
-//
-//        public void typing (Typewriter type, String s){
-//            type.setText("");
-//            type.setCharacterDelay(150);
-//            type.animateText(s);
-//
-//        }
 
         introButton.setOnClickListener(new View.OnClickListener() {
             @Override
