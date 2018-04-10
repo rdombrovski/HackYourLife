@@ -7,10 +7,14 @@
     <string name="beginButton">Start your Journey</string>
     <string name="aminoGame">Amino Practice</string>
 
+    <string name="default_location">Fetching Location...</string>
+
+    <!--Step Counter Strings-->
+    <string name="numSteps">0</string>
+    <string name="startSteps">Count Your Steps</string>
 
 
-
-<!--  AA matching game -->
+    <!--  AA matching game -->
     <string name="aa_game">Amino Acid Matching</string>
 
     <string name="hello_world">Amino Acid Matching</string>

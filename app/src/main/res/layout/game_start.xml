@@ -17,16 +17,45 @@
             android:id="@+id/textGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="11dp"
             android:text="First Words"
             android:textColor="@android:color/black"
             android:textSize="34sp" />
+
+        <ImageView
+            android:id="@+id/weatherPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/cityName"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/textGrid"
+            app:srcCompat="@drawable/dunno" />
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/weatherPic"
+            android:text="@string/default_location" />
+
+        <TextView
+            android:id="@+id/currentTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/textGrid"
+            android:text="TextView" />
 
     </RelativeLayout>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cityName"
         android:layout_weight="8"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
@@ -59,7 +88,7 @@
 
                 <ImageButton
                     android:id="@+id/aminoIcon"
-                    android:layout_width="114dp"
+                    android:layout_width="match_parent"
                     android:layout_height="106dp"
                     app:srcCompat="@drawable/aminoacid" />
 
@@ -141,12 +170,11 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/BotLeft"
+                <ImageButton
+                    android:id="@+id/pedomBut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/icon_place_mat" />
+                    app:srcCompat="@drawable/footprint" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,8 +185,9 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
-
             </LinearLayout>
+
+
         </android.support.v7.widget.CardView>
 
         <!--Column 2-->

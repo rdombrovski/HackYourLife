@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bif812.roman.hackyourlife">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,7 @@
         android:label="GeneHacker"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name="com.bif812.roman.hackyourlife.MainActivity"
             android:screenOrientation="portrait">
 
@@ -18,25 +22,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.NewGame"
             android:label="GeneHacker"
             android:screenOrientation="portrait">
         </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.AminoGame"
             android:label="Amino Acid Matching"
             android:screenOrientation="landscape">
         </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.GameActivity"
             android:label="Game"
             android:screenOrientation="landscape">
         </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.InstructionActivity"
             android:label="Instructions"
             android:screenOrientation="landscape"
             android:parentActivityName="com.bif812.roman.hackyourlife.AminoGame">
         </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.FeedbackActivity"
             android:screenOrientation="landscape"
+            android:label="Feedback">
+        </activity>
+
+        <activity android:name="com.bif812.roman.hackyourlife.Steps"
+            android:screenOrientation="portrait"
             android:label="Feedback">
         </activity>
 
