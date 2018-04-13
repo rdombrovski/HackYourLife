@@ -41,4 +41,8 @@
     <string name="title_activity_feedback">Feedback</string>
     <string name="share_title">Master the art of amino acid identification: \n\n</string>
     <string name="share_app"><b></b></string>
+
+    <!-- Step Counter -->
+    <string name="action_about">About</string>
+
 </resources>

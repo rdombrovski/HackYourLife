@@ -27,7 +27,7 @@ public class AminoGame extends AppCompatActivity {
     Button instructions;
     Button playGame;
     String content;
-    ArrayList<com.bif812.roman.hackyourlife.Palabra> rowItems;
+    ArrayList<com.bif812.roman.hackyourlife.Answer> rowItems;
     ProgressDialog progressDialog;
 
     private final String OBJETOS_TAG = "objetos";
@@ -91,7 +91,7 @@ public class AminoGame extends AppCompatActivity {
             JSONObject pal = json.getJSONObject(OBJETOS_TAG);
             obj = pal.getJSONArray(OBJETO_TAG);
             // looping through All albums
-            rowItems = new ArrayList<com.bif812.roman.hackyourlife.Palabra>();
+            rowItems = new ArrayList<com.bif812.roman.hackyourlife.Answer>();
             for (int i = 0; i < obj.length(); i++) {
                 JSONObject al = obj.getJSONObject(i);
                 String id = al.getString(ID_TAG);
@@ -102,7 +102,7 @@ public class AminoGame extends AppCompatActivity {
                 //final int resourceId = resources.getIdentifier(imageName, "drawable", context.getPackageName());
 
                 int resId = getResources().getIdentifier(imageName, "drawable" , getPackageName());
-                com.bif812.roman.hackyourlife.Palabra items = new com.bif812.roman.hackyourlife.Palabra(id,resId,texto);
+                com.bif812.roman.hackyourlife.Answer items = new com.bif812.roman.hackyourlife.Answer(id,resId,texto);
                 rowItems.add(items);
             }
 

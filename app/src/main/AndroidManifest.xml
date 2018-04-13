@@ -54,6 +54,11 @@
             android:label="Feedback">
         </activity>
 
+
+        <!-- __________ Define Service. __________ -->
+        <service android:name=".StepCounting" />
+        <!-- _________________________________________ -->
+
     </application>
 
 </manifest>

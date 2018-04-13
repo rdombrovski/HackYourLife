@@ -3,16 +3,15 @@ package com.bif812.roman.hackyourlife;
 import java.io.Serializable;
 
 /**
- * Created by Elsi on 26/07/2015.
- * Palabra class para guardar la palabra
- * con su imagen
+ * Class to keep the Answers
+ * for each image
  */
-public class Palabra implements Serializable {
+public class Answer implements Serializable {
     private String id;
     private String name;
     private int img;
 
-    public Palabra (String id, int img, String name){
+    public Answer (String id, int img, String name){
         this.id = id;
         this.name = name;
         this.img = img;

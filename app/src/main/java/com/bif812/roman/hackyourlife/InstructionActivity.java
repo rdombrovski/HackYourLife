@@ -16,7 +16,7 @@ public class InstructionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instruction);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) // Habilitar up button
+        if (getSupportActionBar() != null) // Authorize up button
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

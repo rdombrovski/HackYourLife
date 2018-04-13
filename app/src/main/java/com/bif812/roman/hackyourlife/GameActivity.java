@@ -18,8 +18,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bif812.roman.hackyourlife.R;
-
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -27,27 +25,27 @@ import java.util.Random;
 
 
 public class GameActivity extends AppCompatActivity {
-    private ArrayList<com.bif812.roman.hackyourlife.Palabra> palabraList; //Keeps the words (answers)
-    private ArrayList<Integer> numeros; //control to show words without repeatables
-    ImageButton tarjeta1;
-    ImageButton tarjeta2;
-    ImageButton tarjeta3;
+    private ArrayList<com.bif812.roman.hackyourlife.Answer> answerList; //Keeps the words (answers)
+    private ArrayList<Integer> numbers; //control to show words without repeatables
+    ImageButton target1;
+    ImageButton target2;
+    ImageButton target3;
     ImageView feed;
-    TextView palabraMostrar; //word that is shown
-    TextView contadorTxt;
+    TextView countedWord; //word that is shown
+    TextView textCounter;
     TextView lifeTxt;
     TextView timeTxt;
-    private int cantOportunidad;
-    private int contadorObjeto;
+    private int oppCounter;
+    private int objectCounter;
     private int totalMatches;
-    private int usado1;
-    private int usado2;
-    private int usado3;
-    com.bif812.roman.hackyourlife.Palabra palActual;
-    ArrayList<String> palabrasArray;
-    int ultimaPal;
-    int timePalabra;
-    int timeJuego;
+    private int usage1;
+    private int usage2;
+    private int usage3;
+    com.bif812.roman.hackyourlife.Answer actualWord;
+    ArrayList<String> wordsArray;
+    int lastWord;
+    int wordTime;
+    int gameTime;
     int timeCheck;
     private boolean win;
     private boolean life;
@@ -62,26 +60,26 @@ public class GameActivity extends AppCompatActivity {
 
 
     //timer to show words
-    Handler paltimerHandler = new Handler();
+    Handler wordTimerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
 
         @Override
         public void run() {
             int randomPos;
-            paltimerHandler.removeCallbacks(timerRunnable);
+            wordTimerHandler.removeCallbacks(timerRunnable);
             feed.setImageResource(getResources().getIdentifier("empty", "drawable", getPackageName()));
-            if ((cantOportunidad > 0) && (contadorObjeto < totalMatches)) {
-                randomPos = getRandomNumber(palabrasArray.size());
-                ultimaPal = randomPos;
-                palActual = (com.bif812.roman.hackyourlife.Palabra)palabraList.get(ultimaPal);
-                palabraMostrar.setText(palabrasArray.get(ultimaPal));
-                paltimerHandler.postDelayed(this, timePalabra);
-            } else if ((cantOportunidad == 0) && (contadorObjeto < totalMatches)) {
-                paltimerHandler.removeCallbacks(timerRunnable);
+            if ((oppCounter > 0) && (objectCounter < totalMatches)) {
+                randomPos = getRandomNumber(wordsArray.size());
+                lastWord = randomPos;
+                actualWord = (com.bif812.roman.hackyourlife.Answer)answerList.get(lastWord);
+                countedWord.setText(wordsArray.get(lastWord));
+                wordTimerHandler.postDelayed(this, wordTime);
+            } else if ((oppCounter == 0) && (objectCounter < totalMatches)) {
+                wordTimerHandler.removeCallbacks(timerRunnable);
                 life = true;
                 callFeedback();
-            } else if ((cantOportunidad >= 0) && (contadorObjeto == totalMatches)) {
-                paltimerHandler.removeCallbacks(timerRunnable);
+            } else if ((oppCounter >= 0) && (objectCounter == totalMatches)) {
+                wordTimerHandler.removeCallbacks(timerRunnable);
                 win = true;
                 callFeedback();
             }
@@ -94,21 +92,21 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void run() {
             gametimerHandler.removeCallbacks(gametimerRunnable);
-            if ((timeJuego > 1000) && (cantOportunidad > 0) && (contadorObjeto < totalMatches)) {
-                timeJuego = timeJuego-timeCheck;
-                timeTxt.setText(String.valueOf(timeJuego / 1000) + getString(R.string.sec));
+            if ((gameTime > 1000) && (oppCounter > 0) && (objectCounter < totalMatches)) {
+                gameTime = gameTime -timeCheck;
+                timeTxt.setText(String.valueOf(gameTime / 1000) + getString(R.string.sec));
                 gametimerHandler.postDelayed(this, timeCheck);
-            } else if ((timeJuego == 1000) && (cantOportunidad > 0) && (contadorObjeto < totalMatches)) {
-                timeJuego = timeJuego-timeCheck;
-                timeTxt.setText(String.valueOf(timeJuego / 1000) + getString(R.string.sec));
+            } else if ((gameTime == 1000) && (oppCounter > 0) && (objectCounter < totalMatches)) {
+                gameTime = gameTime -timeCheck;
+                timeTxt.setText(String.valueOf(gameTime / 1000) + getString(R.string.sec));
                 gametimerHandler.removeCallbacks(gametimerRunnable);
                 time = true;
                 callFeedback();
-            }  else if ((timeJuego > 0) && (cantOportunidad == 0) && (contadorObjeto < totalMatches)) {
+            }  else if ((gameTime > 0) && (oppCounter == 0) && (objectCounter < totalMatches)) {
                 gametimerHandler.removeCallbacks(gametimerRunnable);
                 life = true;
                 callFeedback();
-            } else if ((timeJuego > 1000) && (cantOportunidad > 0) && (contadorObjeto == totalMatches)) {
+            } else if ((gameTime > 1000) && (oppCounter > 0) && (objectCounter == totalMatches)) {
                 gametimerHandler.removeCallbacks(gametimerRunnable);
                 win = true;
                 callFeedback();
@@ -132,46 +130,46 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         initSounds(this.getApplicationContext());
-        tarjeta1 = (ImageButton)findViewById(R.id.imagen1);
-        tarjeta2 = (ImageButton)findViewById(R.id.imagen2);
-        tarjeta3 = (ImageButton)findViewById(R.id.imagen3);
+        target1 = (ImageButton)findViewById(R.id.image1);
+        target2 = (ImageButton)findViewById(R.id.image2);
+        target3 = (ImageButton)findViewById(R.id.image3);
         feed = (ImageView)findViewById(R.id.feed);
-        palabraMostrar = (TextView)findViewById(R.id.palabra);
-        contadorTxt = (TextView)findViewById(R.id.contador);
+        countedWord = (TextView)findViewById(R.id.word);
+        textCounter = (TextView)findViewById(R.id.counter);
         lifeTxt = (TextView)findViewById(R.id.lifeBox);
         timeTxt = (TextView)findViewById(R.id.timeBox);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             // Get ArrayList Bundle
-            palabraList = (ArrayList<com.bif812.roman.hackyourlife.Palabra>) extras.getSerializable("key");
-            totalMatches = palabraList.size();
-            palabrasArray = new ArrayList<String>();
-            numeros = new ArrayList<Integer>();
+            answerList = (ArrayList<com.bif812.roman.hackyourlife.Answer>) extras.getSerializable("key");
+            totalMatches = answerList.size();
+            wordsArray = new ArrayList<String>();
+            numbers = new ArrayList<Integer>();
             for (int i=0;i<totalMatches;i++) {
-                numeros.add(i);
+                numbers.add(i);
             }
             initGame();
         }
-        tarjeta1.setOnClickListener(new View.OnClickListener() {
+        target1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (verifyPalabra(tarjeta1.getContentDescription().toString())) {
-                    showNextImage(tarjeta1);
+                if (verifyWord(target1.getContentDescription().toString())) {
+                    showNextImage(target1);
                 }
             }
         });
 
-        tarjeta2.setOnClickListener(new View.OnClickListener() {
+        target2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (verifyPalabra(tarjeta2.getContentDescription().toString())) {
-                    showNextImage(tarjeta2);
+                if (verifyWord(target2.getContentDescription().toString())) {
+                    showNextImage(target2);
                 }
             }
         });
-        tarjeta3.setOnClickListener(new View.OnClickListener() {
+        target3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if (verifyPalabra(tarjeta3.getContentDescription().toString())) {
-                    //mostrar la proxima imagen
-                    showNextImage(tarjeta3);
+                if (verifyWord(target3.getContentDescription().toString())) {
+                    //show the next image
+                    showNextImage(target3);
                 }
             }
         });
@@ -181,44 +179,44 @@ public class GameActivity extends AppCompatActivity {
     private void initGame(){
         int randomPos;
 
-        contadorObjeto = 0;
-        cantOportunidad = 3;
-        timePalabra=1200; //time in miliseconds to show the next word
-        timeJuego=40000; //time to play the game in 40 seconds
+        objectCounter = 0;
+        oppCounter = 3;
+        wordTime =1200; //time in miliseconds to show the next word
+        gameTime =40000; //time to play the game in 40 seconds
         timeCheck=1000;
         win = false;
         life = false;
         time = false;
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        contadorTxt.setText(String.valueOf(contadorObjeto)+"/"+String.valueOf(totalMatches));
-        lifeTxt.setText(String.valueOf(cantOportunidad));
-        timeTxt.setText(String.valueOf(timeJuego/1000) + getString(R.string.sec));
-        randomPos = getRandomNumber(numeros.size());
-        usado1 = numeros.get(randomPos);
-        numeros.remove(randomPos);
-        palActual = (com.bif812.roman.hackyourlife.Palabra) palabraList.get(usado1);
-        palabrasArray.add(palActual.getName());
-        tarjeta1.setImageResource(palActual.getImg());
-        tarjeta1.setContentDescription(palActual.getName());
-        randomPos = getRandomNumber(numeros.size());
-        usado2 = numeros.get(randomPos);
-        numeros.remove(randomPos);
-        palActual = (com.bif812.roman.hackyourlife.Palabra)palabraList.get(usado2);
-        palabrasArray.add(palActual.getName());
-        tarjeta2.setImageResource(palActual.getImg());
-        tarjeta2.setContentDescription(palActual.getName());
-        randomPos = getRandomNumber(numeros.size());
-        usado3 = numeros.get(randomPos);
-        numeros.remove(randomPos);
-        palActual = (com.bif812.roman.hackyourlife.Palabra)palabraList.get(usado3);
-        palabrasArray.add(palActual.getName());
-        tarjeta3.setImageResource(palActual.getImg());
-        tarjeta3.setContentDescription(palActual.getName());
-        ultimaPal = getRandomNumber(palabrasArray.size());
-        palabraMostrar.setText(palabrasArray.get(ultimaPal));
-        //inicia timer para mostrar la palabra
-        paltimerHandler.postDelayed(timerRunnable, timePalabra);
-        //inicia timer para el juego
+        textCounter.setText(String.valueOf(objectCounter)+"/"+String.valueOf(totalMatches));
+        lifeTxt.setText(String.valueOf(oppCounter));
+        timeTxt.setText(String.valueOf(gameTime /1000) + getString(R.string.sec));
+        randomPos = getRandomNumber(numbers.size());
+        usage1 = numbers.get(randomPos);
+        numbers.remove(randomPos);
+        actualWord = (com.bif812.roman.hackyourlife.Answer) answerList.get(usage1);
+        wordsArray.add(actualWord.getName());
+        target1.setImageResource(actualWord.getImg());
+        target1.setContentDescription(actualWord.getName());
+        randomPos = getRandomNumber(numbers.size());
+        usage2 = numbers.get(randomPos);
+        numbers.remove(randomPos);
+        actualWord = (com.bif812.roman.hackyourlife.Answer)answerList.get(usage2);
+        wordsArray.add(actualWord.getName());
+        target2.setImageResource(actualWord.getImg());
+        target2.setContentDescription(actualWord.getName());
+        randomPos = getRandomNumber(numbers.size());
+        usage3 = numbers.get(randomPos);
+        numbers.remove(randomPos);
+        actualWord = (com.bif812.roman.hackyourlife.Answer)answerList.get(usage3);
+        wordsArray.add(actualWord.getName());
+        target3.setImageResource(actualWord.getImg());
+        target3.setContentDescription(actualWord.getName());
+        lastWord = getRandomNumber(wordsArray.size());
+        countedWord.setText(wordsArray.get(lastWord));
+        //start counter after showing word
+        wordTimerHandler.postDelayed(timerRunnable, wordTime);
+        //start timer for the game
         gametimerHandler.postDelayed(gametimerRunnable, timeCheck);
     }
 
@@ -230,41 +228,41 @@ public class GameActivity extends AppCompatActivity {
         return random;
     }
 
-    private boolean verifyPalabra(String pal){
-        String palActual;
+    private boolean verifyWord(String pal){
+        String actualWord;
 
-        palActual = palabraMostrar.getText().toString();
+        actualWord = countedWord.getText().toString();
 
-        if (pal.equalsIgnoreCase(palActual)) {
-            contadorObjeto++;
+        if (pal.equalsIgnoreCase(actualWord)) {
+            objectCounter++;
             playSound(CORRECT);
             feed.setImageResource(getResources().getIdentifier("correct", "drawable", getPackageName()));
-            contadorTxt.setText(String.valueOf(contadorObjeto)+"/"+String.valueOf(totalMatches));
+            textCounter.setText(String.valueOf(objectCounter)+"/"+String.valueOf(totalMatches));
             return true;
 
         } else {
-            cantOportunidad--;
+            oppCounter--;
             feed.setImageResource(getResources().getIdentifier("wrong", "drawable" , getPackageName()));
             playSound(WRONG);
-            lifeTxt.setText(String.valueOf(cantOportunidad));
+            lifeTxt.setText(String.valueOf(oppCounter));
             return false;
         }
     }
 
-    private void showNextImage(ImageButton tarjeta) {
-        int palabraCorrecta = ultimaPal;
+    private void showNextImage(ImageButton target) {
+        int correctWord = lastWord;
         int randomPos;
-        if ((numeros.size() > 0 ) && (numeros.size() <= 17)){
-            randomPos = getRandomNumber(numeros.size());
-            usado1 = numeros.get(randomPos);
-            numeros.remove(randomPos);
-            palActual = (com.bif812.roman.hackyourlife.Palabra)palabraList.get(usado1);
-            palabrasArray.set(palabraCorrecta,palActual.getName());
-            tarjeta.setImageResource(palActual.getImg());
-            tarjeta.setContentDescription(palActual.getName());
+        if ((numbers.size() > 0 ) && (numbers.size() <= 17)){
+            randomPos = getRandomNumber(numbers.size());
+            usage1 = numbers.get(randomPos);
+            numbers.remove(randomPos);
+            actualWord = (com.bif812.roman.hackyourlife.Answer)answerList.get(usage1);
+            wordsArray.set(correctWord, actualWord.getName());
+            target.setImageResource(actualWord.getImg());
+            target.setContentDescription(actualWord.getName());
         } else {
-            palabrasArray.remove(palabraCorrecta);
-            tarjeta.setImageResource(getResources().getIdentifier("vacio", "drawable" , getPackageName()));
+            wordsArray.remove(correctWord);
+            target.setImageResource(getResources().getIdentifier("empty", "drawable" , getPackageName()));
         }
     }
 
@@ -312,16 +310,15 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        paltimerHandler.removeCallbacks(timerRunnable);
+        wordTimerHandler.removeCallbacks(timerRunnable);
         gametimerHandler.removeCallbacks(gametimerRunnable);
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        paltimerHandler.postDelayed(timerRunnable, timePalabra);
+        wordTimerHandler.postDelayed(timerRunnable, wordTime);
         gametimerHandler.postDelayed(gametimerRunnable, timeCheck);
     }
 

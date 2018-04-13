@@ -1,70 +1,262 @@
 package com.bif812.roman.hackyourlife;
 
+import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Handler;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.io.IOException;
+import java.io.InputStream;
 
 
-public class Steps extends AppCompatActivity implements SensorEventListener{
+public class Steps extends AppCompatActivity{
 
-    TextView steps_taken;
+    TextView stepCountTxV;
+    TextView stepDetect;
 
-    SensorManager sensorManager;
+    Button startServiceBtn;
+    Button stopServiceBtn;
 
-    boolean running = false;
+    String countedStep;
+    String DetectedStep;
+    static final String State_Count = "Counter";
+    static final String State_Detect = "Detector";
 
+    boolean isServiceStopped;
+
+    LinearLayout parentLayout;
+
+    ImageView imageView2;
+
+
+    public Intent intent;
+    private static final String TAG = "SensorEvent";
+
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.steps);
 
-        steps_taken = (TextView) findViewById(R.id.numSteps);
+        // ___ instantiate intent ___ \\
+        //  Instantiate the intent declared globally - which will be passed to startService and stopService.
+        intent = new Intent(this, StepCounting.class);
 
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
-
+        init(); // Call view initialisation method.
     }
 
-    @Override
-    protected void onResume(){
-        super.onResume();
-        running = true;
-        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        if (countSensor != null) {
-            sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
-        }else {
-            Toast.makeText(this, "Sensor not found!", Toast.LENGTH_SHORT).show();
+    // Initialise views.
+    public void init() {
+
+        isServiceStopped = true; // variable for managing service state - required to invoke "stopService" only once to avoid Exception.
+
+        // Layout Background Image Management.
+        try {
+            // Parent Relative Layout Background.
+            // Get input stream.
+            InputStream inputStream = getAssets().open("run.jpg");
+            // Load image as drawable.
+            Drawable parentDrawable = Drawable.createFromStream(inputStream, null);
+            // Set opacity (transparency) of image.
+            parentDrawable.setAlpha(32);
+            // Retrieve parent relativelayout.
+            LinearLayout parentLayout = (LinearLayout)findViewById(R.id.parentLayout);
+            // Set drawable image to imageview.
+            parentLayout.setBackground(parentDrawable);
+
+            // Child Linear Layout Background.
+            //InputStream inputStream2 = getAssets().open("c.jpg");
+            //Drawable childDrawable = Drawable.createFromStream(inputStream2, null);
+            //childDrawable.setAlpha(128);
+            //LinearLayout childLayout = (LinearLayout)findViewById(R.id.childLayout);
+            //parentLayout.setBackground(childDrawable);
+
         }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        // ________________ Service Management (Start & Stop Service). ________________ //
+        // ___ start Service & register broadcast receiver ___ \\
+        startServiceBtn = (Button)findViewById(R.id.startServiceBtn);
+
+        startServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // start Service.
+                startService(new Intent(getBaseContext(), StepCounting.class));
+                // register our BroadcastReceiver by passing in an IntentFilter. * identifying the message that is broadcasted by using static string "BROADCAST_ACTION".
+                registerReceiver(broadcastReceiver, new IntentFilter(StepCounting.BROADCAST_ACTION));
+                isServiceStopped = false;
+            }
+        });
+
+        // ___ unregister receiver & stop service ___ \\
+        stopServiceBtn = (Button)findViewById(R.id.stopServiceBtn);
+        stopServiceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isServiceStopped) {
+                    // call unregisterReceiver - to stop listening for broadcasts.
+                    unregisterReceiver(broadcastReceiver);
+                    // stop Service.
+                    stopService(new Intent(getBaseContext(), StepCounting.class));
+                    isServiceStopped = true;
+                }
+            }
+        });
+        // ___________________________________________________________________________ \\
+
+        // Textviews
+        stepCountTxV = (TextView)findViewById(R.id.stepsCounted);
+        stepDetect = (TextView)findViewById(R.id.stepsDetected);
+
+        // ImageView - not really necessary at this time
+        //imageView2 = (ImageView)findViewById(R.id.imageView2);
+        //Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(),R.mipmap.sneaker);
+        //imageView2.setImageBitmap(bitmap2);
+
     }
 
-    protected void onPause(){
+
+    protected void onPause() {
         super.onPause();
-        running = false;
+    }
+
+    protected void onResume() {
+        super.onResume();
+
+        //layoutsDimen();
+
+        // Currently, when "onResume" is called, the animation continues from where it left off, but this commented code, retarts animation from the beginning.
+        /*
+        animationCustomView = (Animation)findViewById(R.id.custom_view);
+        Handler handler2 = new Handler();
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                animationStart();
+            }
+        },1000);
+        */
 
     }
 
+    // Method for monitoring layout dimensions.
+   // public void layoutsDimen() {
+        //parentLayout = (RelativeLayout) findViewById(R.id.parentLayout);
+    //   //     Log.d("parent layout Height", String.valueOf(parentLayout.getHeight()));
+    //   //     Log.d("parent layout Width", String.valueOf(parentLayout.getWidth()));
+    //   //     relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
+    //   //     Log.d("Rlayout Bottom-most px", String.valueOf(relativeLayout.getBottom()));
+    //   //     Log.d("Rlayout Right-most px", String.valueOf(relativeLayout.getRight()));
+    //
+    //        //childLayout = (LinearLayout) findViewById(R.id.childLayout);
+    //   //     Rect rect = new Rect();
+    //    //    childLayout.getLocalVisibleRect(rect);
+    //    //    Log.d("Child layout Height", String.valueOf(rect.height()));
+    //    //    Log.d("Child layout Width", String.valueOf(rect.width()));
+    //    //    Log.d("ChildLayout B-most px", String.valueOf(rect.bottom));
+    //    //    Log.d("ChildLayout R-most px", String.valueOf(rect.right));
+   // }
+
+
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (running){
-            steps_taken.setText(String.valueOf(event.values[0]));
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu ,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.action_about) {
+            String msg = "Always Keep Healthy!";
+            Toast toast = Toast.makeText(this,msg,Toast.LENGTH_SHORT);
+            toast.show();
+            return true;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    // --------------------------------------------------------------------------- \\
+    // ___ create Broadcast Receiver ___ \\
+    // create a BroadcastReceiver - to receive the message that is going to be broadcast from the Service
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // call updateUI passing in our intent which is holding the data to display.
+            updateViews(intent);
+        }
+    };
+    // ___________________________________________________________________________ \\
+
+
+
+    //private void txvAnimation() {
+      //  TranslateAnimation translateAnimation = new TranslateAnimation(100,-100,100,-100);
+       // translateAnimation.setDuration(200);
+        //translateAnimation.setInterpolator(new LinearOutSlowInInterpolator());
+        //stepCountTxV.startAnimation(translateAnimation);
+        //ScaleAnimation sclaeAnimation = new ScaleAnimation(0,1,0,1);
+        //sclaeAnimation.setDuration(200);
+        //sclaeAnimation.setInterpolator(new AnticipateOvershootInterpolator());
+        //stepDetect.startAnimation(sclaeAnimation);
+
+        //TranslateAnimation translateAnimation3 = new TranslateAnimation(-100,0,-100,0);
+        //translateAnimation3.setDuration(200);
+        //translateAnimation3.setInterpolator(new CycleInterpolator(2));
+        //imageView2.startAnimation(translateAnimation3);
+        //ScaleAnimation sclaeAnimation3 = new ScaleAnimation(0,1,1,0);
+        //sclaeAnimation3.setDuration(200);
+        //sclaeAnimation3.setInterpolator(new BounceInterpolator());
+        //imageView2.startAnimation(sclaeAnimation3);
+    //}
+
+
+    // --------------------------------------------------------------------------- \\
+    // ___ retrieve data from intent & set data to textviews __ \\
+    private void updateViews(Intent intent) {
+        // retrieve data out of the intent.
+        countedStep = intent.getStringExtra("Counted_Step");
+        DetectedStep = intent.getStringExtra("Detected_Step");
+        Log.d(TAG, String.valueOf(countedStep));
+        Log.d(TAG, String.valueOf(DetectedStep));
+
+        stepCountTxV.setText('"' + String.valueOf(countedStep) + '"' + " Steps Counted");
+        stepDetect.setText("Steps Detected = " + String.valueOf(DetectedStep) + '"');
+
+        //txvAnimation();
     }
+    // ___________________________________________________________________________ \\
+
+
+    //not too important in my mind
+    //public void animationStart() {
+     //   Log.v("animation", "start");
+     //   animationCustomView.init();
+    //}
+
 }

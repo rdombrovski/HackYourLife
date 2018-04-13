@@ -38,7 +38,7 @@
             android:layout_weight="0.1"
             android:gravity="center_vertical"/>
         <TextView
-            android:id="@+id/contador"
+            android:id="@+id/counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/text_color_game"
@@ -93,21 +93,21 @@
         android:layout_gravity="center_horizontal|center_vertical"
         android:gravity="center_horizontal">
         <ImageButton
-            android:id="@+id/imagen1"
+            android:id="@+id/image1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/square"
             android:layout_marginRight="@dimen/img_square_pad"
             android:contentDescription="@string/img_desc" />
         <ImageButton
-            android:id="@+id/imagen2"
+            android:id="@+id/image2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/img_square_pad"
             android:background="@drawable/square"
             android:contentDescription="@string/img_desc" />
         <ImageButton
-            android:id="@+id/imagen3"
+            android:id="@+id/image3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/square"
@@ -125,13 +125,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/palabra"
+            android:id="@+id/word"
             android:textColor="@color/text_color_game"
             android:textSize="@dimen/palabra_size"
             android:layout_marginRight="@dimen/img_square_pad"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:text="palabra"
+            android:text="Words"
             android:gravity="center|center_horizontal"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1.00" />
