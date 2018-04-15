@@ -49,7 +49,7 @@ public class NewGame extends AppCompatActivity {
     ImageView mWeatherImage;
     TextView mTemperatureLabel;
 
-    // TODO: Declare a LocationManager and a LocationListener here:
+
     LocationManager mLocationManager;
     LocationListener mLocationListener;
 
@@ -58,16 +58,18 @@ public class NewGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.game_start);
+
         //variables for weather components
         mCityLabel = (TextView) findViewById(R.id.cityName);
         mWeatherImage = (ImageView) findViewById(R.id.weatherPic);
         mTemperatureLabel = (TextView) findViewById(R.id.currentTemp);
 
-
-        ImageView aminoGame = (ImageView) findViewById(R.id.aminoIcon);
+        //All the options menu
+        ImageView aminoGame = (ImageView) findViewById(R.id.aminoBut);
         ImageView pedometer = (ImageView) findViewById(R.id.pedomBut);
+        ImageView meditate = (ImageView) findViewById(R.id.meditateBut);
 
-
+        //Intents for all options
         aminoGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +85,15 @@ public class NewGame extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        meditate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(NewGame.this, Meditation.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
 
     protected void onResume() {
