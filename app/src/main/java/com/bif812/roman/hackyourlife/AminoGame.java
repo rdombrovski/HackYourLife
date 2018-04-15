@@ -11,8 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.bif812.roman.hackyourlife.R;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,7 +28,7 @@ public class AminoGame extends AppCompatActivity {
     ArrayList<com.bif812.roman.hackyourlife.Answer> rowItems;
     ProgressDialog progressDialog;
 
-    private final String OBJETOS_TAG = "objetos";
+    private final String OBJETOS_TAG = "Objects";
     private final String OBJETO_TAG = "objeto";
     private final String ID_TAG = "id";
     private final String TEXTO_TAG = "texto";
@@ -69,7 +67,7 @@ public class AminoGame extends AppCompatActivity {
         try
         {
             InputStream fileObj =
-                    getResources().openRawResource(R.raw.objetos);
+                    getResources().openRawResource(R.raw.objects);
 
             content = readStream(fileObj);
             readJSON(content);
@@ -86,8 +84,8 @@ public class AminoGame extends AppCompatActivity {
         JSONArray obj = null;
         try {
             JSONObject json = new JSONObject(content);
-            String objeto = json.getString(OBJETOS_TAG);
-            Log.i("readJSON", objeto);
+            String object = json.getString(OBJETOS_TAG);
+            Log.i("readJSON", object);
             JSONObject pal = json.getJSONObject(OBJETOS_TAG);
             obj = pal.getJSONArray(OBJETO_TAG);
             // looping through All albums
@@ -95,14 +93,14 @@ public class AminoGame extends AppCompatActivity {
             for (int i = 0; i < obj.length(); i++) {
                 JSONObject al = obj.getJSONObject(i);
                 String id = al.getString(ID_TAG);
-                String texto = al.getString(TEXTO_TAG);
+                String text = al.getString(TEXTO_TAG);
                 String imageName = al.getString(IMAGEN_TAG);
-                Log.d("readJSON", id + " " +texto + " " + imageName);
+                Log.d("readJSON", id + " " +text + " " + imageName);
                 // get resource id by image name
                 //final int resourceId = resources.getIdentifier(imageName, "drawable", context.getPackageName());
 
                 int resId = getResources().getIdentifier(imageName, "drawable" , getPackageName());
-                com.bif812.roman.hackyourlife.Answer items = new com.bif812.roman.hackyourlife.Answer(id,resId,texto);
+                com.bif812.roman.hackyourlife.Answer items = new com.bif812.roman.hackyourlife.Answer(id,resId,text);
                 rowItems.add(items);
             }
 

@@ -1,0 +1,106 @@
+﻿{
+  "objects": {
+    "object": [
+      {
+        "id": "object1",
+        "text": "Alanine",
+        "image": "alanine"
+      },
+      {
+        "id": "object2",
+        "text": "Glycine",
+        "image": "glycine"
+       },
+       {
+        "id": "object3",
+        "text": "Isoleucine",
+        "image": "isoleucine"
+       },
+       {
+        "id": "object4",
+        "text": "Leucine",
+        "image": "leucine"
+       },
+       {
+        "id": "object5",
+        "text": "Phenylalanine",
+        "image": "phenylalanine"
+       },
+       {
+        "id": "object6",
+        "text": "Proline",
+        "image": "proline"
+       },
+       {
+        "id": "object7",
+        "text": "Typtophan",
+        "image": "tryptophan"
+       },
+       {
+        "id": "object8",
+        "text": "Valine",
+        "image": "valine"
+       },
+       {
+        "id": "object9",
+        "text": "Tyrosine",
+        "image": "tyrosine"
+       },
+       {
+        "id": "object10",
+        "text": "Aspartic Acid",
+        "image": "asparticacid"
+       },
+       {
+        "id": "object11",
+        "text": "Asparginine",
+        "image": "asparginine"
+       },
+       {
+        "id": "object12",
+        "text": "Glutamic Acid",
+        "image": "glutamicacid"
+       },
+       {
+        "id": "object13",
+        "text": "Arginine",
+        "image": "arginine"
+       },
+       {
+        "id": "object14",
+        "text": "Histidine",
+        "image": "histidine"
+       },
+       {
+        "id": "object15",
+        "text": "Lysine",
+        "image": "lysine"
+       },
+       {
+        "id": "object16",
+        "text": "Serine",
+        "image": "serine"
+       },
+       {
+        "id": "object17",
+        "text": "Threonine",
+        "image": "threonine"
+       },
+       {
+        "id": "object18",
+        "text": "Cysteine",
+        "image": "cysteine"
+       },
+       {
+        "id": "object19",
+        "text": "Methionine",
+        "image": "methionine"
+       },
+       {
+        "id": "object20",
+        "text": "Glutamine",
+        "image": "glutamine"
+       }
+    ]
+  }
+}

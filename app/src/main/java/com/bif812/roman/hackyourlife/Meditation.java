@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class Meditation extends AppCompatActivity {
 
     //Variables
-    Button playButton, pauseButton, stopButton;
+    ImageButton playButton, pauseButton, stopButton;
 
     private int paused;
     MediaPlayerFunction myMediaPlayer;
@@ -26,7 +27,7 @@ public class Meditation extends AppCompatActivity {
 
 
         //Initializing and using playButton to play music
-        playButton = (Button) findViewById(R.id.playButton);
+        playButton = (ImageButton) findViewById(R.id.play);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +38,7 @@ public class Meditation extends AppCompatActivity {
         });
 
         //Initializing and using pauseButton to pause music
-        pauseButton = (Button) findViewById(R.id.pause);
+        pauseButton = (ImageButton) findViewById(R.id.pause);
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +49,7 @@ public class Meditation extends AppCompatActivity {
         });
 
         //Initializing and using stopButton to stop music
-        stopButton = (Button) findViewById(R.id.stop);
+        stopButton = (ImageButton) findViewById(R.id.stop);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

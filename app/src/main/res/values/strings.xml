@@ -45,4 +45,6 @@
     <!-- Step Counter -->
     <string name="action_about">About</string>
 
+    <string name="meditate">Put on your headphones and press play!</string>
+
 </resources>
