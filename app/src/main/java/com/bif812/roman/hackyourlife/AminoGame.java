@@ -75,7 +75,7 @@ public class AminoGame extends AppCompatActivity {
         }
         catch (Exception ex)
         {
-            Log.e("Ficheros", "Error al leer fichero desde recurso raw");
+            Log.e("Reading Error", "Error reading the JSON file from raw directory");
         }
     }
 

@@ -30,7 +30,10 @@
 
         <activity android:name="com.bif812.roman.hackyourlife.AminoGame"
             android:label="Amino Acid Matching"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY" />
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.GameActivity"
@@ -51,12 +54,20 @@
 
         <activity android:name="com.bif812.roman.hackyourlife.Steps"
             android:screenOrientation="portrait"
-            android:label="Feedback">
+            android:label="Feedback"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY" />
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.Meditation"
             android:screenOrientation="portrait"
-            android:label="Feedback">
+            android:label="Feedback"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY" />
         </activity>
 
 
