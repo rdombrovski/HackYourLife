@@ -1,0 +1,48 @@
+﻿{
+  "snps": {
+    "snp": [
+      {
+        "id": "snp1",
+        "code": "rs4680",
+        "nuc": "G/G",
+        "exp": "Advantage in Strategy/Learning type tasks"
+      },
+      {
+        "id": "snp2",
+        "code": "rs25531",
+        "nuc": "A/A",
+        "exp": "Lower Production of Serotonin"
+       },
+       {
+        "id": "snp3",
+        "code": "rs13266634",
+        "nuc": "C/C",
+        "exp": "Higher Risk for Type 2 Diabetes"
+       },
+       {
+        "id": "snp4",
+        "code": "rs1800497",
+        "nuc": "CT",
+        "exp": "Lower Production of Dopamine/Higher Addiction"
+       },
+      {
+       "id": "snp5",
+       "code": "rs1045714",
+       "nuc": "GG",
+       "exp": "Prone to High Blood Pressure and Arterial Damage from Stress"
+      },
+      {
+       "id": "snp6",
+       "code": "sr1815734",
+       "nuc": "CC",
+       "exp": "Better Muscle Performance. Works well as a Sprinter"
+      },
+      {
+       "id": "snp7",
+       "code": "rs12794714",
+       "nuc": "AA",
+       "exp": "Lower Levels of Retaining Vitamin D"
+      }
+    ]
+  }
+}

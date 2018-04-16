@@ -20,7 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
 public class AminoGame extends AppCompatActivity {
     Button instructions;
     Button playGame;
@@ -28,11 +27,11 @@ public class AminoGame extends AppCompatActivity {
     ArrayList<com.bif812.roman.hackyourlife.Answer> rowItems;
     ProgressDialog progressDialog;
 
-    private final String OBJETOS_TAG = "Objects";
-    private final String OBJETO_TAG = "objeto";
+    private final String OBJECTS_TAG = "Objects";
+    private final String OBJECT_TAG = "object";
     private final String ID_TAG = "id";
-    private final String TEXTO_TAG = "texto";
-    private final String IMAGEN_TAG = "imagen";
+    private final String TEXT_TAG = "text";
+    private final String IMAGE_TAG = "image";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,17 +83,17 @@ public class AminoGame extends AppCompatActivity {
         JSONArray obj = null;
         try {
             JSONObject json = new JSONObject(content);
-            String object = json.getString(OBJETOS_TAG);
+            String object = json.getString(OBJECTS_TAG);
             Log.i("readJSON", object);
-            JSONObject pal = json.getJSONObject(OBJETOS_TAG);
-            obj = pal.getJSONArray(OBJETO_TAG);
+            JSONObject pal = json.getJSONObject(OBJECTS_TAG);
+            obj = pal.getJSONArray(OBJECT_TAG);
             // looping through All albums
             rowItems = new ArrayList<com.bif812.roman.hackyourlife.Answer>();
             for (int i = 0; i < obj.length(); i++) {
                 JSONObject al = obj.getJSONObject(i);
                 String id = al.getString(ID_TAG);
-                String text = al.getString(TEXTO_TAG);
-                String imageName = al.getString(IMAGEN_TAG);
+                String text = al.getString(TEXT_TAG);
+                String imageName = al.getString(IMAGE_TAG);
                 Log.d("readJSON", id + " " +text + " " + imageName);
                 // get resource id by image name
                 //final int resourceId = resources.getIdentifier(imageName, "drawable", context.getPackageName());
