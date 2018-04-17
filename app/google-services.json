@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "601779223967",
+    "firebase_url": "https://hackyourlife-81e6f.firebaseio.com",
+    "project_id": "hackyourlife-81e6f",
+    "storage_bucket": "hackyourlife-81e6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601779223967:android:a7744589d72af620",
+        "android_client_info": {
+          "package_name": "com.bif812.roman.hackyourlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601779223967-n3au3gh0thsu419n34svrmr2qs44r2r7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3mzHlxQhnc-pXBf6gifRBVli7DQJijc8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

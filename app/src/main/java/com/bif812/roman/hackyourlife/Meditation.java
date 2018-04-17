@@ -58,6 +58,16 @@ public class Meditation extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (myMediaPlayer != null){
+            myMediaPlayer.pauseFunction();
+            if (isFinishing()){
+                myMediaPlayer.stopFunction();
+            }
+        }
     }
 }

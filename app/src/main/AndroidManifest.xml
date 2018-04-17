@@ -32,8 +32,7 @@
             android:label="Amino Acid Matching"
             android:screenOrientation="landscape"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY" />
+
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.GameActivity"
@@ -57,19 +56,29 @@
             android:label="Feedback"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY" />
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.Meditation"
             android:screenOrientation="portrait"
             android:label="Feedback"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY" />
         </activity>
+<!--
+        <activity android:name="com.bif812.roman.hackyourlife.ToDoList"
+            android:screenOrientation="portrait"
+            android:label="Feedback"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame"/>
 
+        <activity android:name="com.bif812.roman.hackyourlife.AddTask"
+            android:screenOrientation="portrait"
+            android:label="Feedback"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.ToDoList"/>
+
+        <activity android:name="com.bif812.roman.hackyourlife.SingleTask"
+            android:screenOrientation="portrait"
+            android:label="Feedback"
+            android:parentActivityName = "com.bif812.roman.hackyourlife.ToDoList"/>
+-->
 
         <!-- __________ Define Service. __________ -->
         <service android:name=".StepCounting" />
