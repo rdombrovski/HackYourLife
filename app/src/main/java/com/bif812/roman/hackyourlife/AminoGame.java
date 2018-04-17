@@ -27,7 +27,7 @@ public class AminoGame extends AppCompatActivity {
     ArrayList<com.bif812.roman.hackyourlife.Answer> rowItems;
     ProgressDialog progressDialog;
 
-    private final String OBJECTS_TAG = "Objects";
+    private final String OBJECTS_TAG = "objects";
     private final String OBJECT_TAG = "object";
     private final String ID_TAG = "id";
     private final String TEXT_TAG = "text";

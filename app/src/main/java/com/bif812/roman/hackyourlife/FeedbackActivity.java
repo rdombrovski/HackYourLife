@@ -18,6 +18,7 @@ import com.bif812.roman.hackyourlife.R;
 
 
 public class FeedbackActivity extends AppCompatActivity {
+
     public static final String EXTRA_LIFE = "life";
     public static final String EXTRA_TIME = "time";
     public static final String EXTRA_WIN = "win";
@@ -47,14 +48,14 @@ public class FeedbackActivity extends AppCompatActivity {
         //call instructions
         playAgain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AminoGame.class);
                 startActivity(intent);
             }
         });
 
         shareBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Log.i("GAME","click en share");
+                Log.i("GAME","click and share");
                 createShareIntent();
             }
         });

@@ -51,13 +51,11 @@ public class GameActivity extends AppCompatActivity {
     private boolean life;
     private boolean time;
 
-
     //sound
     SoundPool soundPool;
     HashMap<Integer, Integer> soundPoolMap;
     int CORRECT = 0;
     int WRONG = 0;
-
 
     //timer to show words
     Handler wordTimerHandler = new Handler();
@@ -114,7 +112,7 @@ public class GameActivity extends AppCompatActivity {
         }
     };
 
-    //Call the feedback activity
+    //Call the feedback activity after game is done
     private void callFeedback() {
         Intent intent;
         intent = new Intent(getApplicationContext(), com.bif812.roman.hackyourlife.FeedbackActivity.class);
@@ -130,6 +128,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         initSounds(this.getApplicationContext());
+
         target1 = (ImageButton)findViewById(R.id.image1);
         target2 = (ImageButton)findViewById(R.id.image2);
         target3 = (ImageButton)findViewById(R.id.image3);
@@ -138,18 +137,29 @@ public class GameActivity extends AppCompatActivity {
         textCounter = (TextView)findViewById(R.id.counter);
         lifeTxt = (TextView)findViewById(R.id.lifeBox);
         timeTxt = (TextView)findViewById(R.id.timeBox);
+
+        //retrieving bundle from AminoGame.java
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             // Get ArrayList Bundle
-            answerList = (ArrayList<com.bif812.roman.hackyourlife.Answer>) extras.getSerializable("key");
-            totalMatches = answerList.size();
-            wordsArray = new ArrayList<String>();
-            numbers = new ArrayList<Integer>();
-            for (int i=0;i<totalMatches;i++) {
-                numbers.add(i);
+            //create arrays for words and numbers
+            try {
+                answerList = (ArrayList<com.bif812.roman.hackyourlife.Answer>) extras.getSerializable("key");
+                totalMatches = answerList.size();
+                wordsArray = new ArrayList<String>();
+                numbers = new ArrayList<Integer>();
+                for (int i = 0; i < totalMatches; i++) {
+                    numbers.add(i);
+                }
+                initGame();
             }
-            initGame();
+            catch (Exception ex)
+            {
+                Log.e("Loading Error", "No Array was passed");
+            }
         }
+
+
         target1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 if (verifyWord(target1.getContentDescription().toString())) {
@@ -187,10 +197,12 @@ public class GameActivity extends AppCompatActivity {
         win = false;
         life = false;
         time = false;
+
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         textCounter.setText(String.valueOf(objectCounter)+"/"+String.valueOf(totalMatches));
         lifeTxt.setText(String.valueOf(oppCounter));
         timeTxt.setText(String.valueOf(gameTime /1000) + getString(R.string.sec));
+
         randomPos = getRandomNumber(numbers.size());
         usage1 = numbers.get(randomPos);
         numbers.remove(randomPos);
@@ -198,6 +210,7 @@ public class GameActivity extends AppCompatActivity {
         wordsArray.add(actualWord.getName());
         target1.setImageResource(actualWord.getImg());
         target1.setContentDescription(actualWord.getName());
+
         randomPos = getRandomNumber(numbers.size());
         usage2 = numbers.get(randomPos);
         numbers.remove(randomPos);
@@ -205,6 +218,7 @@ public class GameActivity extends AppCompatActivity {
         wordsArray.add(actualWord.getName());
         target2.setImageResource(actualWord.getImg());
         target2.setContentDescription(actualWord.getName());
+
         randomPos = getRandomNumber(numbers.size());
         usage3 = numbers.get(randomPos);
         numbers.remove(randomPos);
@@ -212,6 +226,8 @@ public class GameActivity extends AppCompatActivity {
         wordsArray.add(actualWord.getName());
         target3.setImageResource(actualWord.getImg());
         target3.setContentDescription(actualWord.getName());
+
+
         lastWord = getRandomNumber(wordsArray.size());
         countedWord.setText(wordsArray.get(lastWord));
         //start counter after showing word
@@ -228,12 +244,12 @@ public class GameActivity extends AppCompatActivity {
         return random;
     }
 
-    private boolean verifyWord(String pal){
+    private boolean verifyWord(String aa){
         String actualWord;
 
         actualWord = countedWord.getText().toString();
 
-        if (pal.equalsIgnoreCase(actualWord)) {
+        if (aa.equalsIgnoreCase(actualWord)) {
             objectCounter++;
             playSound(CORRECT);
             feed.setImageResource(getResources().getIdentifier("correct", "drawable", getPackageName()));
@@ -252,7 +268,7 @@ public class GameActivity extends AppCompatActivity {
     private void showNextImage(ImageButton target) {
         int correctWord = lastWord;
         int randomPos;
-        if ((numbers.size() > 0 ) && (numbers.size() <= 17)){
+        if ((numbers.size() > 0 ) && (numbers.size() <= 20)){
             randomPos = getRandomNumber(numbers.size());
             usage1 = numbers.get(randomPos);
             numbers.remove(randomPos);
@@ -322,25 +338,25 @@ public class GameActivity extends AppCompatActivity {
         gametimerHandler.postDelayed(gametimerRunnable, timeCheck);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+  //  @Override
+   // public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
        // getMenuInflater().inflate(R.menu.menu_game, menu);
-        return true;
-    }
+   //     return true;
+   // }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    //@Override
+   // public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+   //     int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+   //     if (id == R.id.action_settings) {
+   //         return true;
+     //   }
 
-        return super.onOptionsItemSelected(item);
-    }
+    //    return super.onOptionsItemSelected(item);
+   // }
 }

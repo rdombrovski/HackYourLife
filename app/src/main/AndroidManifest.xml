@@ -48,7 +48,8 @@
 
         <activity android:name="com.bif812.roman.hackyourlife.FeedbackActivity"
             android:screenOrientation="landscape"
-            android:label="Feedback">
+            android:label="Feedback"
+            android:parentActivityName="com.bif812.roman.hackyourlife.AminoGame">
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.Steps"
