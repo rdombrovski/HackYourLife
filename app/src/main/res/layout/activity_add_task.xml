@@ -17,10 +17,11 @@ tools:context="com.bif812.roman.hackyourlife.AddTask">
     android:id="@+id/editTask"
     android:hint="Enter Task"
     />
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Add Task"
-    android:onClick="addButtonClicked"
-    />
+
+    <Button
+        android:id="@+id/addTaskBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addButtonClicked"
+        android:text="Add Task" />
 </LinearLayout>

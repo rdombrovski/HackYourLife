@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "601779223967-kfeindih32kud2dj5d0nkh8hqanu2t3c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bif812.roman.hackyourlife",
+            "certificate_hash": "7cd5f26da187dbab7b8cc9b80c06b13fcca69fc7"
+          }
+        },
+        {
           "client_id": "601779223967-n3au3gh0thsu419n34svrmr2qs44r2r7.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601779223967-n3au3gh0thsu419n34svrmr2qs44r2r7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

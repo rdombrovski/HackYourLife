@@ -8,6 +8,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-    <item android:id="@+id/addTask" android:title="Add Task"
-        app:showAsAction= "always" />
+
+    <item android:id="@+id/addTask"
+        android:title="Add Task"
+        app:showAsAction= "always"
+        android:icon="@drawable/addcircle"/>
 </menu>

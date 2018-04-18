@@ -64,7 +64,7 @@
             android:label="Feedback"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
         </activity>
-<!--
+
         <activity android:name="com.bif812.roman.hackyourlife.ToDoList"
             android:screenOrientation="portrait"
             android:label="Feedback"
@@ -79,7 +79,7 @@
             android:screenOrientation="portrait"
             android:label="Feedback"
             android:parentActivityName = "com.bif812.roman.hackyourlife.ToDoList"/>
--->
+
 
         <!-- __________ Define Service. __________ -->
         <service android:name=".StepCounting" />

@@ -38,10 +38,13 @@ public class GameActivity extends AppCompatActivity {
     private int oppCounter;
     private int objectCounter;
     private int totalMatches;
+
     private int usage1;
     private int usage2;
     private int usage3;
     com.bif812.roman.hackyourlife.Answer actualWord;
+
+    //current Amino Acids (3)
     ArrayList<String> wordsArray;
     int lastWord;
     int wordTime;
@@ -59,6 +62,7 @@ public class GameActivity extends AppCompatActivity {
 
     //timer to show words
     Handler wordTimerHandler = new Handler();
+
     Runnable timerRunnable = new Runnable() {
 
         @Override
@@ -73,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
                 countedWord.setText(wordsArray.get(lastWord));
                 wordTimerHandler.postDelayed(this, wordTime);
             } else if ((oppCounter == 0) && (objectCounter < totalMatches)) {
-                wordTimerHandler.removeCallbacks(timerRunnable);
+                    wordTimerHandler.removeCallbacks(timerRunnable);
                 life = true;
                 callFeedback();
             } else if ((oppCounter >= 0) && (objectCounter == totalMatches)) {
@@ -140,12 +144,13 @@ public class GameActivity extends AppCompatActivity {
 
         //retrieving bundle from AminoGame.java
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
             // Get ArrayList Bundle
             //create arrays for words and numbers
             try {
                 answerList = (ArrayList<com.bif812.roman.hackyourlife.Answer>) extras.getSerializable("key");
-                totalMatches = answerList.size();
+                totalMatches = answerList.size()/4;
                 wordsArray = new ArrayList<String>();
                 numbers = new ArrayList<Integer>();
                 for (int i = 0; i < totalMatches; i++) {
@@ -190,15 +195,16 @@ public class GameActivity extends AppCompatActivity {
         int randomPos;
 
         objectCounter = 0;
-        oppCounter = 3;
-        wordTime =1200; //time in miliseconds to show the next word
-        gameTime =40000; //time to play the game in 40 seconds
+        oppCounter = 5;
+        wordTime =1200; //time in milliseconds to show the next word
+        gameTime =60000; //time to play the game in 60 seconds
         timeCheck=1000;
         win = false;
         life = false;
         time = false;
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
         textCounter.setText(String.valueOf(objectCounter)+"/"+String.valueOf(totalMatches));
         lifeTxt.setText(String.valueOf(oppCounter));
         timeTxt.setText(String.valueOf(gameTime /1000) + getString(R.string.sec));

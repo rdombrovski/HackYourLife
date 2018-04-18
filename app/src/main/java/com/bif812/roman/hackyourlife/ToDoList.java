@@ -22,12 +22,15 @@ import java.util.Date;
 public class ToDoList extends AppCompatActivity {
     private RecyclerView mTaskList;
     private DatabaseReference mDatabase;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         mTaskList = (RecyclerView) findViewById(R.id.task_list);
         mTaskList.setHasFixedSize(true);
         mTaskList.setLayoutManager(new LinearLayoutManager(this));
@@ -44,27 +47,34 @@ public class ToDoList extends AppCompatActivity {
         String dateString = sdff.format(date);
         bannerDate.setText(dateString);
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_to_do_list, menu);
         return true;
     }
+
+    //sets names and times for tasks on the page
     public static class TaskViewHolder extends  RecyclerView.ViewHolder{
         View mView;
         public TaskViewHolder(View itemView){
             super(itemView);
             mView = itemView;
         }
+
         public void setName(String name){
             TextView task_name = (TextView) mView.findViewById(R.id.taskName);
             task_name.setText(name);
         }
+
         public void setTime(String time){
             TextView task_time = (TextView) mView.findViewById(R.id.taskTime);
             task_time.setText(time);
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -91,6 +101,7 @@ public class ToDoList extends AppCompatActivity {
         };
         mTaskList.setAdapter(FBRA);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

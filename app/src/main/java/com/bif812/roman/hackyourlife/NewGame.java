@@ -68,6 +68,7 @@ public class NewGame extends AppCompatActivity {
         ImageView aminoGame = (ImageView) findViewById(R.id.aminoBut);
         ImageView pedometer = (ImageView) findViewById(R.id.pedomBut);
         ImageView meditate = (ImageView) findViewById(R.id.meditateBut);
+        ImageView toDoList = (ImageView) findViewById(R.id.listBut);
 
         //Intents for all options
         aminoGame.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,14 @@ public class NewGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(NewGame.this, Meditation.class);
+                startActivity(myIntent);
+            }
+        });
+        toDoList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("todolist", "Clicked on the to do list");
+                Intent myIntent = new Intent (NewGame.this, ToDoList.class);
                 startActivity(myIntent);
             }
         });

@@ -210,17 +210,16 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/BotRight"
+                <ImageButton
+                    android:id="@+id/listBut"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/icon_place_mat" />
+                    android:layout_height="125dp"
+                    app:srcCompat="@drawable/list" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="icon"
+                    android:text="Tasks"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
@@ -228,6 +227,7 @@
 
 
             </LinearLayout>
+
         </android.support.v7.widget.CardView>
 
 
