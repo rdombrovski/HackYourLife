@@ -158,12 +158,12 @@ Gene: rs4680 Nucleotide : G/G"
         android:layout_below="@+id/snp1Btn"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="SNP #2: Lower Levels of Serotonin
     Gene: rs25531 Nucleotide: A/A"
         android:textColor="#FFFF1200"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toEndOf="@+id/snp2Btn"
         app:layout_constraintTop_toBottomOf="@+id/snpdesc1" />
 
