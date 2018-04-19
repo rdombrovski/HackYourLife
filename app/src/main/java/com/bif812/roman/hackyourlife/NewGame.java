@@ -45,7 +45,7 @@ public class NewGame extends AppCompatActivity {
     String LOCATION_PROVIDER = LocationManager.NETWORK_PROVIDER;
 
     // Member Variables:
-    TextView mCityLabel;
+    //TextView mCityLabel;
     ImageView mWeatherImage;
     TextView mTemperatureLabel;
 
@@ -60,7 +60,7 @@ public class NewGame extends AppCompatActivity {
         setContentView(R.layout.game_start);
 
         //variables for weather components
-        mCityLabel = (TextView) findViewById(R.id.cityName);
+        //mCityLabel = (TextView) findViewById(R.id.cityName);
         mWeatherImage = (ImageView) findViewById(R.id.weatherPic);
         mTemperatureLabel = (TextView) findViewById(R.id.currentTemp);
 
@@ -226,8 +226,8 @@ public class NewGame extends AppCompatActivity {
     // updates the UI for the Weather
     private void updateUI(WeatherDataModel weather){
 
-        String currentCity = weather.getCity();
-        mCityLabel.setText(currentCity);
+        //String currentCity = weather.getCity();
+        //mCityLabel.setText(currentCity);
         mTemperatureLabel.setText(weather.getTemperature());
 
         int resourceID = getResources().getIdentifier(weather.getIconName(), "drawable", getPackageName());
@@ -235,7 +235,6 @@ public class NewGame extends AppCompatActivity {
     }
 
 
-    // TODO: Add onPause() here:
 
     @Override
     protected void onPause() {

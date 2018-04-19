@@ -8,6 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/aa_game_background"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -16,13 +17,17 @@
         android:gravity="top|center_vertical"
         tools:context=".MainActivity">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/titulo"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
             android:layout_weight="0.3"
-            />
+            android:backgroundTintMode="@color/cardview_dark_background"
+            android:lineSpacingExtra="12sp"
+            android:text="@string/aa_game"
+            android:textAlignment="center"
+            android:textSize="46sp"
+            android:textStyle="bold" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

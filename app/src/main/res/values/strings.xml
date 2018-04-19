@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">HackYourLife</string>
     <string name="introText">Good. You\'re awake...</string>
-    <string name="introText2">Welcome to the rest of your life..</string>
+    <string name="introText2">Come to play?</string>
     <string name="introText3">You will now be known as a..</string>
     <string name="introText4">GENEHACKER</string>
     <string name="beginButton">Start your Journey</string>
     <string name="aminoGame">Amino Practice</string>
+    <string name="meditation">Meditate</string>
+    <string name="main">Home</string>
 
     <string name="default_location">Fetching Location...</string>
 
@@ -24,7 +26,7 @@
     <string name="instr_btn">instructions</string>
     <string name="play_btn">play</string>
     <string name="play_again_btn">play again</string>
-
+    <string name="list_icon">Task Manager</string>
     <string name="sec">sec</string>
 
     <string name="match_found">Matches found:</string>

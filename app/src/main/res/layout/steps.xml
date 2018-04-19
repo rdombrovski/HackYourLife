@@ -11,7 +11,8 @@
     android:orientation="vertical"
     android:touchscreenBlocksFocus="false"
     android:transitionGroup="false"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/snp_background">
     <!--android:background="@mipmap/h"-->
 
 

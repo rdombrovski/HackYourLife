@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="GeneHacker"
+        android:label="HackYourLife"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -23,8 +23,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.bif812.roman.hackyourlife.SNP_select"
+            android:label="HackYourLife"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity android:name="com.bif812.roman.hackyourlife.NewGame"
-            android:label="GeneHacker"
+            android:label="HackYourLife"
             android:screenOrientation="portrait">
         </activity>
 
@@ -54,14 +59,14 @@
 
         <activity android:name="com.bif812.roman.hackyourlife.Steps"
             android:screenOrientation="portrait"
-            android:label="Feedback"
+            android:label="Steps"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
 
         </activity>
 
         <activity android:name="com.bif812.roman.hackyourlife.Meditation"
             android:screenOrientation="portrait"
-            android:label="Feedback"
+            android:label="Meditation"
             android:parentActivityName = "com.bif812.roman.hackyourlife.NewGame">
         </activity>
 
@@ -72,13 +77,14 @@
 
         <activity android:name="com.bif812.roman.hackyourlife.AddTask"
             android:screenOrientation="portrait"
-            android:label="Feedback"
+            android:label="Add Task"
             android:parentActivityName = "com.bif812.roman.hackyourlife.ToDoList"/>
 
         <activity android:name="com.bif812.roman.hackyourlife.SingleTask"
             android:screenOrientation="portrait"
-            android:label="Feedback"
+            android:label="Single Task"
             android:parentActivityName = "com.bif812.roman.hackyourlife.ToDoList"/>
+
 
 
         <!-- __________ Define Service. __________ -->

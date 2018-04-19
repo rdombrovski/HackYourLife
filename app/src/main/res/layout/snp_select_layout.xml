@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/snp_background"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <TextView
+        android:id="@+id/snpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Single Nucleotide Polymorphisms"
+        android:textColor="@color/titles"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp1Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snpTitle"
+        app:srcCompat="@drawable/strategies_snp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp2Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp1Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp1Btn"
+        app:srcCompat="@drawable/serotonin_snp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp3Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp2Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp2Btn"
+        app:srcCompat="@drawable/diabetes_snp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp5Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp4Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp4Btn"
+        app:srcCompat="@drawable/hb_snp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp6Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp5Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp5Btn"
+        app:srcCompat="@drawable/muscle_snp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp7Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp6Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp6Btn"
+        app:srcCompat="@drawable/vitd_snp" />
+
+    <!--
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+    </android.support.constraint.ConstraintLayout>
+    -->
+
+
+    <TextView
+        android:id="@+id/snpdesc1"
+        android:layout_width="210dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/snp1Btn"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="SNP #1: Learning Strategy
+Gene: rs4680 Nucleotide : G/G"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toEndOf="@+id/snp1Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpTitle" />
+
+    <TextView
+        android:id="@+id/snpdesc2"
+        android:layout_width="228dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_below="@+id/snp1Btn"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="SNP #2: Lower Levels of Serotonin
+    Gene: rs25531 Nucleotide: A/A"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toEndOf="@+id/snp2Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc1" />
+
+    <TextView
+        android:id="@+id/snpdesc3"
+        android:layout_width="255dp"
+        android:layout_height="34dp"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_below="@+id/snp2Btn"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:text="SNP #3: Higher Risk for TII Diabetes
+    Gene: rs13266634 Nucleotide: C/C"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/snp3Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc2" />
+
+    <TextView
+        android:id="@+id/snpdesc4"
+        android:layout_width="234dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_alignTop="@+id/snp4Btn"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="SNP #4: Lower Levels of Dopamine
+    Gene: rs1800497 Nucleotide: CT"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toEndOf="@+id/snp4Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc3" />
+
+    <TextView
+        android:id="@+id/snpdesc5"
+        android:layout_width="238dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_below="@+id/snp4Btn"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="SNP #5: Risk for High Blood Pressure
+    Gene: rs1045714 Nucleotide: GG"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toEndOf="@+id/snp5Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc4" />
+
+    <TextView
+        android:id="@+id/snpdesc6"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:layout_above="@+id/snp7Btn"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="SNP #6: Better Muscle Performance
+    Gene: sr1815734 Nucelotide: CC"
+        android:textColor="#FFFF1200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toEndOf="@+id/snp6Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc5" />
+
+    <TextView
+        android:id="@+id/snpedsc7"
+        android:layout_width="239dp"
+        android:layout_height="39dp"
+        android:layout_alignStart="@+id/snpdesc1"
+        android:layout_alignTop="@+id/snp7Btn"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="SNP #7: Difficulty Retaining Vitamin D
+    Gene: rs12794714 Nucleotide: AA"
+        android:textColor="#FFFF1200"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toEndOf="@+id/snp7Btn"
+        app:layout_constraintTop_toBottomOf="@+id/snpdesc6"
+        app:layout_constraintVertical_bias="0.161" />
+
+
+    <Button
+        android:id="@+id/contButton"
+        android:layout_width="195dp"
+        android:layout_height="37dp"
+        android:layout_alignEnd="@+id/snpTitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/black"
+        android:text="Continue"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snpedsc7"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/snp4Btn"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_alignStart="@+id/snpTitle"
+        android:layout_below="@+id/snp3Btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        app:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snp3Btn"
+        app:srcCompat="@drawable/dopamine_snp" />
+
+
+    </android.support.constraint.ConstraintLayout>

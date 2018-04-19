@@ -5,6 +5,11 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Class which works through a weatherData object and updates so that
+ *
+ */
+
 public class WeatherDataModel {
 
 
@@ -13,7 +18,12 @@ public class WeatherDataModel {
     private String mIconName;
     private int mCondition;
 
-    // weatherdatamodel created from JSON
+    /**
+     * Gets data from JSON
+     * @param jsonObject which is acquired from the OpenWeatherMap API, will contain data
+     *                   like city, weather condition, etc.
+     * @return weatherData object which contains condition, icon name and city
+     */
     public static WeatherDataModel fromJSON(JSONObject jsonObject){
 
 
@@ -39,6 +49,11 @@ public class WeatherDataModel {
         }
     }
 
+    /**
+     * Method that updates the icon for weather from the drawable list
+     * @param condition based on a list of range of conditions acquired from api
+     * @return icon link
+     */
     // update image depending on weather condition
     private static String updateWeatherIcon(int condition) {
 
@@ -71,17 +86,27 @@ public class WeatherDataModel {
         return "dunno";
     }
 
-    //getter methods for temperature, city and icons
 
-
+    /**
+     * Getter method for temperature
+     * @return mTemperature temperature good enough for display
+     */
     public String getTemperature() {
         return mTemperature + "°";
     }
 
+    /**
+     * Getter method for city name
+     * @return mCity name good enough for display
+     */
     public String getCity() {
         return mCity;
     }
 
+    /**
+     * Getter method for icon
+     * @return mIconName icon name translated for display
+     */
     public String getIconName() {
         return mIconName;
     }

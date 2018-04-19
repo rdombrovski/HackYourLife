@@ -9,18 +9,17 @@
     android:weightSum="10">
 
     <RelativeLayout
-        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="2">
 
         <TextView
             android:id="@+id/textGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="11dp"
-            android:text="First Words"
+            android:text="Main Screen"
             android:textColor="@android:color/black"
             android:textSize="34sp" />
 
@@ -28,34 +27,26 @@
             android:id="@+id/weatherPic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/cityName"
-            android:layout_marginStart="13dp"
-            android:layout_toEndOf="@+id/textGrid"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="69dp"
             app:srcCompat="@drawable/dunno" />
 
         <TextView
-            android:id="@+id/cityName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/weatherPic"
-            android:text="@string/default_location" />
-
-        <TextView
             android:id="@+id/currentTemp"
-            android:layout_width="wrap_content"
+            android:layout_width="66dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textGrid"
-            android:text="TextView" />
+            android:layout_centerVertical="true"
+            android:text="TextView"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/cityName"
         android:layout_weight="8"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
@@ -75,9 +66,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="@color/cardview_shadow_end_color"
+            app:cardBackgroundColor="@color/button_bg"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,8 +79,8 @@
 
                 <ImageButton
                     android:id="@+id/aminoBut"
-                    android:layout_width="130dp"
-                    android:layout_height="106dp"
+                    android:layout_width="106dp"
+                    android:layout_height="111dp"
                     app:srcCompat="@drawable/aminoacid" />
 
                 <TextView
@@ -116,9 +107,9 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="@color/cardview_shadow_end_color"
+            app:cardBackgroundColor="@color/button_bg"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -129,8 +120,8 @@
 
                 <ImageButton
                     android:id="@+id/meditateBut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="106dp"
+                    android:layout_height="111dp"
                     app:srcCompat="@drawable/meditation" />
 
                 <TextView
@@ -158,7 +149,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="@color/cardview_shadow_end_color"
+            app:cardBackgroundColor="@color/button_bg"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -171,8 +162,8 @@
 
                 <ImageButton
                     android:id="@+id/pedomBut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="106dp"
+                    android:layout_height="111dp"
                     app:srcCompat="@drawable/footprint" />
 
                 <TextView
@@ -199,7 +190,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_rowWeight="1"
-            app:cardBackgroundColor="@color/cardview_shadow_end_color"
+            app:cardBackgroundColor="@color/button_bg"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
@@ -212,8 +203,8 @@
 
                 <ImageButton
                     android:id="@+id/listBut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="125dp"
+                    android:layout_width="106dp"
+                    android:layout_height="111dp"
                     app:srcCompat="@drawable/list" />
 
                 <TextView

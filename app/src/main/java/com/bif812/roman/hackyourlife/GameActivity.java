@@ -150,7 +150,7 @@ public class GameActivity extends AppCompatActivity {
             //create arrays for words and numbers
             try {
                 answerList = (ArrayList<com.bif812.roman.hackyourlife.Answer>) extras.getSerializable("key");
-                totalMatches = answerList.size()/4;
+                totalMatches = answerList.size()/2;
                 wordsArray = new ArrayList<String>();
                 numbers = new ArrayList<Integer>();
                 for (int i = 0; i < totalMatches; i++) {
@@ -188,14 +188,13 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void initGame(){
         int randomPos;
 
         objectCounter = 0;
-        oppCounter = 5;
+        oppCounter = 3;
         wordTime =1200; //time in milliseconds to show the next word
         gameTime =60000; //time to play the game in 60 seconds
         timeCheck=1000;

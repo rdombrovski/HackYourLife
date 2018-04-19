@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/background_dark">
+        android:background="@drawable/background_java">
 
         <com.bif812.roman.hackyourlife.Typewriter
             android:id="@+id/intro1"
@@ -24,9 +24,11 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="42dp"
-            android:background="@android:color/background_dark"
             android:text="@string/introText"
-            android:textColor="@android:color/background_light" />
+            android:textColor="#0F173B"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!--android:background="#0F173B"-->
 
         <com.bif812.roman.hackyourlife.Typewriter
             android:id="@+id/intro2"
@@ -35,20 +37,25 @@
             android:layout_below="@+id/intro1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:background="@android:color/background_dark"
             android:text="@string/introText2"
-            android:textColor="@android:color/background_light" />
+            android:textColor="#0F173B"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!--android:background="#0F173B"-->
 
+        <!--try to think about another intro/ also faster typewriting-->
         <com.bif812.roman.hackyourlife.Typewriter
             android:id="@+id/intro3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/intro2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="99dp"
-            android:background="@android:color/background_dark"
+            android:layout_marginTop="90dp"
             android:text="@string/introText3"
-            android:textColor="@android:color/background_light" />
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!--android:background="#0F173B"-->
 
         <com.bif812.roman.hackyourlife.Typewriter
             android:id="@+id/intro4"
@@ -57,10 +64,12 @@
             android:layout_below="@+id/intro3"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"
-            android:background="@android:color/background_dark"
             android:text="@string/introText4"
             android:textColor="@android:color/background_light"
-            android:textSize="20sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <!--android:background="#0F173B"-->
     </RelativeLayout>
 
     <Button
@@ -70,6 +79,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        android:text="@string/beginButton" />
+        android:background="#0F173B"
+        android:text="@string/beginButton"
+        android:textColor="@android:color/background_light"/>
 
 </RelativeLayout>
